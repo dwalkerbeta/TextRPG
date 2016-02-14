@@ -1,10 +1,11 @@
 
 public class Character {
-	
+
 	private static Character character = new Character();
-	
-	private Character() {}
-	
+
+	private Character() {
+	}
+
 	public static Character getInstance() {
 		return character;
 	}
@@ -62,7 +63,7 @@ public class Character {
 		}
 
 		else if (getCharclass() == "Wizard") {
-			weapon = "Dagger";
+			weapon = "Staff";
 			setWeapon(weapon);
 		}
 
@@ -88,7 +89,7 @@ public class Character {
 			result = (int) ((Math.random() * 6) + 3);
 		}
 
-		else if (getWeapon() == "Hand") {
+		else if (getWeapon() == "Hands") {
 			result = (int) ((Math.random() * 3) + 1);
 		}
 
