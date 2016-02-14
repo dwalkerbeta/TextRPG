@@ -1,47 +1,70 @@
 import java.util.*;
 
 public class main {
+	
 
 	public static void main(String[] args) {
 
-		Scanner in = new Scanner(System.in);
+		// initialize all the vars and things we will use in the main game method
+		Scanner intin = new Scanner(System.in);
+		Scanner stringin = new Scanner(System.in);
 		int choice = 0;
-		String check = null;
+		String check;
+		//singleton method to have a single instance
+		Character character = Character.getInstance();
 
+		//START THE GAME ALREADY
 		System.out.println(StringBank.askcharname);
-		Character.charname = in.nextLine();
-
+		String name = stringin.nextLine();
+		character.setCharname(name);
+		System.out.println("Your name is " + character.getCharname() + "\n");
+		
 		do {
+			// initialize the fields that will be parameters passed to the character methods
+			String charclass;
+			int charhealth;
+			
 			System.out.println(StringBank.askcharclass);
-			int checkclass = in.nextInt();
+			int checkclass = intin.nextInt();
+			
 			if (checkclass == 1) {
-				Character.charclass = "Warrior";
+				charclass = "Warrior";
+				character.setCharclass(charclass);
+				charhealth = 50;
+				character.setCharhealth(charhealth);
 			}
 
 			else if (checkclass == 2) {
-				Character.charclass = "Rogue";
+				charclass = "Rogue";
+				character.setCharclass(charclass);
+				charhealth = 35;
+				character.setCharhealth(charhealth);
 			}
 
 			else if (checkclass == 3) {
-				Character.charclass = "Wizard";
+				charclass = "Wizard";
+				character.setCharclass(charclass);
+				charhealth = 25;
+				character.setCharhealth(charhealth);
 			}
 
 			else {
 				System.out.println(StringBank.error);
 			}
-		} while (Character.charclass.equals(null));
-
-		Character.charclass = in.nextLine();
+			
+			System.out.println(character.getCharname() + ", you are a " + character.getCharclass() +
+					" with a health of " + character.getCharhealth() + "\n");
+			
+		} while (character.charclass.equals(null));
 
 		System.out.println(StringBank.str1);
 
 		// this is the first choice in the game
 		do {
-			System.out.println(StringBank.entercommand);
-			check = in.nextLine().toLowerCase();
+			check = stringin.nextLine().toLowerCase();
 
 			if (check.equals("y")) {
-				Actions.addWeapon();
+				character.setWeapon();
 				System.out.println(StringBank.str1y);
 				choice = 1;
 			}
@@ -54,6 +77,15 @@ public class main {
 			else {
 				System.out.println(StringBank.error);
 			}
+			
+			//some pretty prints
+			if(character.getCharclass() == "Warrior") {
+				System.out.println("It is an " + character.getWeapon() + "\n");
+			}
+			
+			else {
+				System.out.println("It is a " + character.getWeapon() + "\n");
+			}
 		} while (choice == 0);
 		// end of first choice in game
 
@@ -61,8 +93,7 @@ public class main {
 		if (choice == 1) {
 			System.out.println(StringBank.str1_1);
 			do {
-				System.out.println(StringBank.entercommand);
-				check = in.nextLine().toLowerCase();
+				check = stringin.nextLine().toLowerCase();
 
 				if (check.equals("right")) {
 					System.out.println(StringBank.str1_1right);
