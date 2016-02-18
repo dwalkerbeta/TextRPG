@@ -24,9 +24,8 @@ public class StringBank {
 	public static String str1_1 = "Having taken your weapon you set off exploring. After some time you come across a fork in the road. The right path looks sunny and the left path leads further into the forest. Which path do you follow? (right/left)\n";
 
 	public static String str1_1right = "You are heading down the right path when suddenly a goblin jumps out in front of you! At this point you have some choices. You can either attempt to talk to the goblin and appeal to its feral nature, or you can attack with a guarunteed initiative. What do you do? (talk/attack)\n";
-	public static String str1_1left = "Left path (to be continued)\n";
-	
+	public static String str1_1left = "Headed further into the forest you hear a rustling sound to your right. You may either continue walking or search for the source. (walk/search)\n";
+
 	// choice = 2
-	
 
 }

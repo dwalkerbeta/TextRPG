@@ -14,6 +14,7 @@ public class Character {
 	String charclass;
 	int charhealth;
 	String weapon;
+	int bank;
 
 	public void setCharname(String in) {
 		charname = in;
@@ -45,6 +46,14 @@ public class Character {
 
 	public String getWeapon() {
 		return weapon;
+	}
+
+	public void setBank(int in) {
+		bank = bank + in;
+	}
+
+	public int getBank() {
+		return bank;
 	}
 
 	// adds a string to the string var weapon for later if else checks
@@ -90,7 +99,7 @@ public class Character {
 		}
 
 		else if (getWeapon() == "Hands") {
-			result = (int) ((Math.random() * 3) + 1);
+			result = (int) ((Math.random() * 2) + 1);
 		}
 
 		else {
