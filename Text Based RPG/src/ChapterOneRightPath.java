@@ -113,12 +113,13 @@ public class ChapterOneRightPath {
 					check = stringin.nextLine().toLowerCase();
 
 					if (check.equals("path")) {
-						System.out.println("\"The path ahead leads towards a human village. I'll be leaving now.\"");
+						System.out.println(
+								"\"The path ahead leads towards a human village. I'll be leaving now.\"/n/nYou head towards the edge of the forest, keeping an eye out for the village.\n");
 					}
 
 					else if (check.equals("goblin")) {
 						System.out.println(
-								"\"I'm just a poor goblin. Thank you for taking pity on me. I don't know what came over me, it felt like I just had to attack you. I'll be leaving now, but the path ahead leads to a human village. So long!\"");
+								"\"I'm just a poor goblin. Thank you for taking pity on me. I don't know what came over me, it felt like I just had to attack you. I'll be leaving now, but the path ahead leads to a human village. So long!\"\n\nYou continue walking and wonder if there are other forces at work here..\n");
 					}
 
 					else {
@@ -145,23 +146,29 @@ public class ChapterOneRightPath {
 
 					System.out.println("You can now inspect the body with (inspect)\n");
 
-					check = stringin.nextLine().toLowerCase();
+					int flag1 = 0;
 
-					if (check.equals("inspect")) {
-						character.setBank(10);
-						System.out.println("You now have " + character.getBank() + " GP.");
-						break;
-					}
+					do {
+						check = stringin.nextLine().toLowerCase();
 
-					else if (check.equals("")) {
-						System.out.println("You didn't pick up the money. Have fun.");
-						break;
-					}
+						if (check.equals("inspect")) {
+							character.setBank(10);
+							System.out.println("You now have " + character.getBank() + " GP.");
+							flag1 = 1;
+							break;
+						}
 
-					else {
-						System.out.println(StringBank.error);
-					}
+						else if (check.equals("")) {
+							System.out.println("You didn't pick up the money. Have fun.");
+							flag1 = 1;
+							break;
+						}
 
+						else {
+							System.out.println(StringBank.error);
+						}
+					} while (flag1 == 0);
+					
 					break;
 				}
 
@@ -203,25 +210,33 @@ public class ChapterOneRightPath {
 						System.out.println("You dealt " + charattack
 								+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
 						System.out.println("You can now inspect the body with (inspect)\n");
+						int flag1 = 0;
 
-						check = stringin.nextLine().toLowerCase();
+						do {
 
-						if (check.equals("inspect")) {
-							character.setBank(10);
-							System.out.println("You now have " + character.getBank() + " GP.");
-							break;
-						}
+							check = stringin.nextLine().toLowerCase();
 
-						else if (check.equals("")) {
-							System.out.println("You didn't pick up the money. Have fun.");
-							break;
-						}
+							if (check.equals("inspect")) {
+								character.setBank(10);
+								System.out.println("You now have " + character.getBank() + " GP.");
+								flag1 = 1;
+								break;
+							}
 
-						else {
-							System.out.println(StringBank.error);
-						}
+							else if (check.equals("")) {
+								System.out.println("You didn't pick up the money. Have fun.");
+								flag1 = 1;
+								break;
+							}
+
+							else {
+								System.out.println(StringBank.error);
+							}
+
+						} while (flag1 == 0);
 
 						break;
+
 					}
 
 					// if goblin isn't then return to top of loop

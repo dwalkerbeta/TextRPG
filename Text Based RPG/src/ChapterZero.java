@@ -24,7 +24,7 @@ public class ChapterZero {
 		Character character = Character.getInstance();
 
 		// START THE GAME ALREADY
-		System.out.println(StringBank.askcharname);
+		System.out.println("What is your name?\n");
 		String name = stringin.nextLine();
 		if (name.isEmpty() == true) {
 			name = "Leeroy Jenkins";
@@ -32,7 +32,7 @@ public class ChapterZero {
 		}
 		character.setCharname(name);
 
-		System.out.println("Hello " + character.getCharname() + ", " + StringBank.askcharclass);
+		System.out.println("Hello " + character.getCharname() + ", what is your class? (Choose a number) \n1. Warrior\n2. Rogue\n3. Wizard\n");
 
 		do {
 			// initialize the fields that will be parameters passed to the
@@ -73,7 +73,7 @@ public class ChapterZero {
 		flag = 0;
 
 		System.out.println(character.getCharname() + ", you are a " + character.getCharclass() + " with a health of "
-				+ character.getCharhealth() + "\n" + StringBank.str1 + "\n");
+				+ character.getCharhealth() + "\nYou find yourself in the clearing of a forest. There is a weapon on the ground, do you take it? (y/n)\n");
 
 		// this is the first choice in the game
 		do {
@@ -81,7 +81,7 @@ public class ChapterZero {
 
 			if (check.equals("y")) {
 				character.setWeapon();
-				System.out.println(StringBank.str1y);
+				System.out.println("You take the weapon\n");
 				if (character.getCharclass() == "Warrior") {
 					System.out.println("You now have an " + character.getWeapon() + "\n");
 				}
@@ -95,8 +95,8 @@ public class ChapterZero {
 			else if (check.equals("n")) {
 				String in = "Hands";
 				character.setWeapon(in);
-				System.out.println(
-						"You are equipped with your " + character.getWeapon() + "\n\n" + StringBank.str1n + "\n");
+				System.out.println("You leave the weapon behind. Good luck.\n" + 
+						"You are equipped with your " + character.getWeapon() + "\n");
 				flag = 1;
 			}
 

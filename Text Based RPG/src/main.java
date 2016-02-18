@@ -4,14 +4,14 @@ public class main {
 
 	public static void main(String[] args) {
 
-		// get all the singletons of the chapters
+		// get all the singletons of the classes
 		ChoiceBank cb = ChoiceBank.getInstance();
 		ChapterZero chapterzero = ChapterZero.getInstance();
 		ChapterOne chapterone = ChapterOne.getInstance();
 		ChapterOneRightPath corp = ChapterOneRightPath.getInstance();
 		ChapterOneLeftPath colp = ChapterOneLeftPath.getInstance();
 
-		// do the main methods of initialized chapters
+		// main methods of initialized chapters/classes
 		chapterzero.main(args);
 
 		chapterone.main(args);

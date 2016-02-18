@@ -43,7 +43,7 @@ public class ChapterOneLeftPath {
 
 						if (stealth == stealthcheck) {
 							character.setBank(10);
-							System.out.println("Success");
+							System.out.println("You have succeeded in stealing the goblin's coins and now have 10 GP. You smile as you head onward with the forest soon to be behind you.\n");
 						}
 
 						else {
@@ -90,23 +90,28 @@ public class ChapterOneLeftPath {
 											+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
 
 									System.out.println("You can now inspect the body with (inspect)\n");
+									int flag1 = 0;
 
-									check = stringin.nextLine().toLowerCase();
+									do {
+										check = stringin.nextLine().toLowerCase();
 
-									if (check.equals("inspect")) {
-										character.setBank(10);
-										System.out.println("You now have " + character.getBank() + " GP.");
-										break;
-									}
+										if (check.equals("inspect")) {
+											character.setBank(10);
+											System.out.println("You now have " + character.getBank() + " GP.");
+											flag1 = 1;
+											break;
+										}
 
-									else if (check.equals("")) {
-										System.out.println("You didn't pick up the money. Have fun.");
-										break;
-									}
+										else if (check.equals("")) {
+											System.out.println("You didn't pick up the money. Have fun.");
+											flag1 = 1;
+											break;
+										}
 
-									else {
-										System.out.println(StringBank.error);
-									}
+										else {
+											System.out.println(StringBank.error);
+										}
+									} while (flag1 == 0);
 
 									break;
 								}
@@ -128,7 +133,7 @@ public class ChapterOneLeftPath {
 
 						if (stealth == stealthcheck) {
 							character.setBank(10);
-							System.out.println("Success");
+							System.out.println("You have succeeded in stealing the goblin's coins and now have 10 GP. You smile as you head onward with the forest soon to be behind you.\n");
 
 						}
 
@@ -176,24 +181,28 @@ public class ChapterOneLeftPath {
 											+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
 
 									System.out.println("You can now inspect the body with (inspect)\n");
+									int flag1 = 0;
 
-									check = stringin.nextLine().toLowerCase();
+									do {
+										check = stringin.nextLine().toLowerCase();
 
-									if (check.equals("inspect")) {
-										character.setBank(10);
-										System.out.println("You now have " + character.getBank() + " GP.");
-										break;
-									}
+										if (check.equals("inspect")) {
+											character.setBank(10);
+											System.out.println("You now have " + character.getBank() + " GP.");
+											flag1 = 1;
+											break;
+										}
 
-									else if (check.equals("")) {
-										System.out.println("You didn't pick up the money. Have fun.");
-										break;
-									}
+										else if (check.equals("")) {
+											System.out.println("You didn't pick up the money. Have fun.");
+											flag1 = 1;
+											break;
+										}
 
-									else {
-										System.out.println(StringBank.error);
-									}
-
+										else {
+											System.out.println(StringBank.error);
+										}
+									} while (flag1 == 0);
 									break;
 								}
 
@@ -214,7 +223,7 @@ public class ChapterOneLeftPath {
 
 						if (stealth == stealthcheck) {
 							character.setBank(10);
-							System.out.println("Success");
+							System.out.println("You have succeeded in stealing the goblin's coins and now have 10 GP. You smile as you head onward with the forest soon to be behind you.\n");
 
 						}
 
@@ -262,23 +271,28 @@ public class ChapterOneLeftPath {
 											+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
 
 									System.out.println("You can now inspect the body with (inspect)\n");
+									int flag1 = 0;
 
-									check = stringin.nextLine().toLowerCase();
+									do {
+										check = stringin.nextLine().toLowerCase();
 
-									if (check.equals("inspect")) {
-										character.setBank(10);
-										System.out.println("You now have " + character.getBank() + " GP.");
-										break;
-									}
+										if (check.equals("inspect")) {
+											character.setBank(10);
+											System.out.println("You now have " + character.getBank() + " GP.");
+											flag1 = 1;
+											break;
+										}
 
-									else if (check.equals("")) {
-										System.out.println("You didn't pick up the money. Have fun.");
-										break;
-									}
+										else if (check.equals("")) {
+											System.out.println("You didn't pick up the money. Have fun.");
+											flag1 = 1;
+											break;
+										}
 
-									else {
-										System.out.println(StringBank.error);
-									}
+										else {
+											System.out.println(StringBank.error);
+										}
+									} while (flag1 == 0);
 
 									break;
 								}
@@ -294,16 +308,130 @@ public class ChapterOneLeftPath {
 						}
 					}
 
+					System.out.println("You head for the edge of the forest hoping your luck turns.\n");
 					break;
 				}
 
 				else if (check.equals("attack")) {
 
+					// sets goblin health and variables to use for initial
+					// attack
+					int gobhealth = 6, charhp, charattack = character.useWeapon(character.getWeapon());
+
+					// first attack because of initiative
+					gobhealth = gobhealth - charattack;
+
+					// check if goblin died yet
+					if (gobhealth <= 0) {
+						System.out.println("You dealt " + charattack
+								+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
+
+						System.out.println("You can now inspect the body with (inspect)\n");
+						int flag1 = 0;
+
+						do {
+							check = stringin.nextLine().toLowerCase();
+
+							if (check.equals("inspect")) {
+								character.setBank(10);
+								System.out.println("You now have " + character.getBank() + " GP.");
+								flag1 = 1;
+							}
+
+							else if (check.equals("")) {
+								System.out.println("You didn't pick up the money. Have fun.");
+								flag1 = 1;
+							}
+
+							else {
+								System.out.println(StringBank.error);
+							}
+						} while (flag1 == 0);
+
+						break;
+					}
+
+					else {
+						System.out.println(
+								"You dealt " + charattack + " damage, leaving the goblin with " + gobhealth + " HP\n");
+					}
+
+					// begin do while loop for attacking the goblin
+					do {
+						// these are at the beginning because the while loop
+						// simulates die rolls
+						charattack = character.useWeapon(character.getWeapon());
+						int gobattack = (int) (Math.random() * 3) + 1;
+
+						// goblin attack and character health is set but not
+						// seen
+						charhp = character.getCharhealth() - gobattack;
+						character.setCharhealth(charhp);
+
+						// check to see if character health is below or equal to
+						// 0
+						if (character.getCharhealth() <= 0) {
+							System.out.println("The goblin dealt " + gobattack + " damage, leaving you with 0 HP\n"
+									+ StringBank.chardeath);
+							break;
+						}
+
+						else {
+							System.out.println("The goblin dealt " + gobattack + " damage, leaving you with "
+									+ character.getCharhealth() + " HP\n");
+						}
+
+						// character now attack goblin again
+						gobhealth = gobhealth - charattack;
+
+						// check to see if goblin health is below or equal to 0
+						if (gobhealth <= 0) {
+							System.out.println("You dealt " + charattack
+									+ " damage, leaving the goblin with 0 HP\n\nThe goblin has died. Congratulations!\n");
+							System.out.println("You can now inspect the body with (inspect)\n");
+							int flag1 = 0;
+
+							do {
+								check = stringin.nextLine().toLowerCase();
+
+								if (check.equals("inspect")) {
+									character.setBank(10);
+									System.out.println("You now have " + character.getBank() + " GP.");
+									flag1 = 1;
+									break;
+								}
+
+								else if (check.equals("")) {
+									System.out.println("You didn't pick up the money. Have fun.");
+									flag1 = 1;
+									break;
+								}
+
+								else {
+									System.out.println(StringBank.error);
+								}
+							} while (flag1 == 0);
+
+							break;
+						}
+
+						// if goblin isn't then return to top of loop
+						else {
+							System.out.println("You dealt " + charattack + " damage, leaving the goblin with "
+									+ gobhealth + " HP\n");
+						}
+
+					} while (gobhealth > 0 || character.getCharhealth() > 0);
+
+					System.out.println("You head towards the forest edge that is now in sight, always on the lookout.\n");
+					
+					flag = 1;
+
 					break;
 				}
 
 				else if (check.equals("leave")) {
-
+					System.out.println("You continue ahead hoping to find friendlier beings/n");
 					break;
 				}
 
