@@ -32,7 +32,7 @@ public class ChapterZero {
 		}
 		character.setCharname(name);
 
-		System.out.println("Hello " + character.getCharname() + ", what is your class? (Choose a number) \n1. Warrior\n2. Rogue\n3. Wizard\n");
+		System.out.println("Hello, " + character.getCharname() + ", what is your class? (Choose a number) \n1. Warrior\n2. Rogue\n3. Wizard\n");
 
 		do {
 			// initialize the fields that will be parameters passed to the
